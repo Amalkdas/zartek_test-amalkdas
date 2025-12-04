@@ -15,7 +15,7 @@ function Header() {
   return (
    <>
 
-  <div className='flex p-10 items-center justify-between '>
+  <div className='flex p-10 items-center    justify-between '>
 
     <h1 className='text-2xl font-semibold text-gray-600'>UNI Resto cafe</h1>
     <div className='flex justify-center gap-10 items-center'>

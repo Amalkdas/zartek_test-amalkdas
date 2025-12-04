@@ -21,15 +21,20 @@ function Slider({ data }) {
   useEffect(()=>{
 
  if(eachitemref.current[isindex]){
-  eachitemref.current[isindex].scrollIntoView({behavoir:"smooth",inline:"center"})
+  eachitemref.current[isindex].scrollIntoView({behavior:"smooth",inline:"center"})
  }
 
   },[isindex])
 
+
+  useEffect(()=>{
+    window.scrollTo({behavior:"smooth",top:0})
+  },[eachitemref.current[isindex]])
+
   return (
     <>
       <div
-        className="main flex  w-full   gap-10  md:overflow-hidden  overflow-x-auto   px-4 justify-evenly  "
+        className="main flex   w-full    gap-10  md:overflow-hidden  overflow-x-auto   px-4 justify-evenly  "
         style={{ whiteSpace: "nowrap" }}
       >
         {data.length > 0

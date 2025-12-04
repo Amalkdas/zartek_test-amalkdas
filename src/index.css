@@ -3,6 +3,7 @@
 
 *{
   scroll-behavior: smooth;
+  
 }
 .main ::-webkit-scrollbar{
   display: none;
