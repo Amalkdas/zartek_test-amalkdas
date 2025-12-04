@@ -1,24 +1,35 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { add, cartslice, rem } from "./redux/cartslice";
 import { FaPlus } from "react-icons/fa6";
 import { FaMinus } from "react-icons/fa6";
+import { current } from "@reduxjs/toolkit";
 useSelector;
 
 function Slider({ data }) {
+  
   const [isindex, setisindex] = useState(0);
   const items = useSelector((state) => state.cartreducer);
   const dispatch = useDispatch();
 
   const swipetotheslide = useRef(null);
 
+  const eachitemref = useRef([])
+
   console.log(data);
+  useEffect(()=>{
+
+ if(eachitemref.current[isindex]){
+  eachitemref.current[isindex].scrollIntoView({behavoir:"smooth",inline:"center"})
+ }
+
+  },[isindex])
 
   return (
     <>
       <div
-        className="main flex  w-full   gap-10  overflow-x-auto   px-4 justify-evenly  "
+        className="main flex  w-full   gap-10  md:overflow-hidden  overflow-x-auto   px-4 justify-evenly  "
         style={{ whiteSpace: "nowrap" }}
       >
         {data.length > 0
@@ -26,6 +37,7 @@ function Slider({ data }) {
               return (
                 <div
                   key={index}
+                  
                   className={`${
                     isindex === index
                       ? " py-2  md:flex shrink-0 flex justify-center   border-b-2 items-center border-red-600"
@@ -36,6 +48,7 @@ function Slider({ data }) {
                   <p
                     key={index}
                     onClick={() => swipetotheslide.current.slideTo(index)}
+                    ref={(el)=>(eachitemref.current[index] = el)}
                     className={`${
                       isindex === index
                         ? "font-semibold text-lg text-red-600 cursor-pointer "

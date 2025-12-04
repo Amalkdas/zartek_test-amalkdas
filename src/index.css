@@ -4,7 +4,14 @@
 *{
   scroll-behavior: smooth;
 }
-
+.main ::-webkit-scrollbar{
+  display: none;
+}
+.main{
+  overflow-x: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
 
 
 
