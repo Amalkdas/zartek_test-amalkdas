@@ -31,6 +31,8 @@ function Slider({ data }) {
     window.scrollTo({behavior:"smooth",top:0})
   },[eachitemref.current[isindex]])
 
+  //to block the view from bing pushed down when the category title is scrolledinto view
+
   return (
     <>
       <div
